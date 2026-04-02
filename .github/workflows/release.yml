@@ -17,14 +17,13 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
 
-      - name: Build app
+      - name: Build
         run: npm run build
 
-      - name: Package and publish
+      - name: Publish
         run: npx electron-builder --publish always
